@@ -5,7 +5,7 @@
     enableFishIntegration = true;
 
     settings = {
-      format =  "$battery$directory ";
+      format = "$battery$directory ";
       right_format = " $git_branch $git_status $cmd_duration";
       directory = {
         format = "[ 󰀘  ](bg:#a9b665 fg:#1e1e2e)[ $path ](bg:#484b4c fg:#c7b89d)";
@@ -22,17 +22,17 @@
       cmd_duration = {
         min_time = 1;
         # duration & style 
-        format = "[[ 󰔚 ](bg:#161821 fg:#eba0ac bold)$duration ](bg:#161821 fg:#BBC3DF)";
+        format = "[[ 󰔚 ](bg:#32302f fg:#eba0ac bold)$duration ](bg:#32302f fg:#BBC3DF)";
         disabled = false;
-        style = "bg:none fg:#161821";
+        style = "bg:none fg:#32302f";
       };
 
       git_branch = {
-      format = "[[  ](bg:#32302f fg:#A2DD9D bold)$branch ](bg:#32302f fg:#86AAEC)";
+        format = "[[  ](bg:#32302f fg:#A2DD9D bold)$branch ](bg:#32302f fg:#86AAEC)";
       };
 
       git_status = {
-        format = "[$all_status$ahead_behind ](bg:#161821 fg:#b4befe)";
+        format = "[$all_status$ahead_behind ](bg:#32302f fg:#b4befe)";
         style = "bg:none fg:#161821";
         conflicted = "=";
         ahead = " ⇡\${count}";
@@ -45,8 +45,8 @@
         deleted = " 󰅖$\{count}";
         stashed = " 󰏖";
         renamed = " »$\{count}";
-    };
-      
+      };
+
     };
   };
 }

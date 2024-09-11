@@ -63,8 +63,10 @@
 
     eza
     glib
+    acpilight
     wayland
     direnv
+    gnome-software
 
     lazygit
     authenticator
@@ -91,6 +93,7 @@
     obsidian
     vesktop
     spotify
+    gnome-keyring
     telegram-desktop
   ];
 
@@ -107,8 +110,8 @@
     enable = true;
 
     theme = {
-      package = pkgs.gruvbox-gtk-theme;
-      name = "Gruvbox-Dark";
+      package = "${import ./gruvbox-gtk.nix { inherit pkgs; }}";
+      name = "Gruvbox-Material-Dark-HIDPI";
 
     };
 

@@ -25,8 +25,6 @@
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
     };
-
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs =

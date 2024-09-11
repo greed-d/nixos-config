@@ -51,9 +51,11 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.flatpak.enable = true;
 
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = false;
+  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.theme = "catppuccin-mocha";
   # services.displayManager.sddm = {
@@ -89,21 +91,21 @@
     #media-session.enable = true;
   };
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
-    };
-  };
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  #
+  #     CPU_MIN_PERF_ON_AC = 0;
+  #     CPU_MAX_PERF_ON_AC = 100;
+  #     CPU_MIN_PERF_ON_BAT = 0;
+  #     CPU_MAX_PERF_ON_BAT = 20;
+  #   };
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -133,6 +135,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  xdg.portal.xdgOpenUsePortal = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -147,6 +150,7 @@
     unzip
     xclip
     neovim
+    xdg-utils
     fira-sans
     nerdfonts
     libnotify
@@ -166,7 +170,6 @@
     pavucontrol
     rofi-wayland
 
-    inputs.zen-browser.packages."${system}".specific
   ];
 
   #================
@@ -207,12 +210,31 @@
 
   };
 
-  # fonts.packages = with pkgs; [
-  #   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  # ];
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "DroidSansMono"
+        "FiraCode"
+        "GeistMono"
+        # "CaskaydiaMono"
+      ];
+    })
+    font-awesome
+    liberation_ttf
+    noto-fonts
+
+    lohit-fonts.devanagari
+  ];
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Liberation Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "Fira Code" ];
+    };
+  };
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

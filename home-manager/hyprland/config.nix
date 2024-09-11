@@ -34,7 +34,7 @@
         "$mainMod" = "SUPER";
         "$terminal" = "kitty";
         "$fileManager" = "thunar";
-        "$menu" = "rofi -show drun";
+        "$menu" = "rofi -show drun -theme ~/.config/rofi/nord.rasi";
         "$browser" = "firefox";
         "$disc_client" = "vesktop";
 
@@ -66,6 +66,14 @@
         shadow_render_power = 2;
         drop_shadow = 2;
         shadow_range = 20;
+        blur = {
+          enabled = true;
+          size = 5;
+          passes = 3;
+          new_optimizations = "on";
+          ignore_opacity = "on";
+        };
+
       };
 
       monitor = [
@@ -136,7 +144,7 @@
         "$mainMod , D, exec, $disc_client"
         "$mainMod , E, exec, $fileManager"
         "$mainMod , T, exec, swaync-client -t -sw"
-        "$mainMod , V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod , V, exec, cliphist list | rofi -dmenu -theme ~/.config/rofi/nord.rasi | cliphist decode | wl-copy"
         "$mainMod CONTROL, L, exec, hyprlock"
 
         "$mainMod , U, focusurgentorlast"
@@ -252,8 +260,7 @@
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
 
-        "opacity 0.90 0.90, class:^(thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm)$"
-        "opacity 0.93 0.93, class:^(vesktop|obsidian)$"
+        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian)$"
         "workspace 1, class:^firefox$"
         "workspace 1, class:^floorp$"
         "workspace 3, class:^obsidian$"
