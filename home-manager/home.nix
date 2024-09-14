@@ -2,8 +2,6 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
-  lib,
-  config,
   pkgs,
   ...
 }:
@@ -60,6 +58,7 @@
     firefox
     nerdfonts
     sioyek
+    inter
 
     eza
     glib
@@ -95,6 +94,7 @@
     spotify
     gnome-keyring
     telegram-desktop
+
   ];
 
   home.pointerCursor = {
@@ -104,18 +104,17 @@
     size = 24;
   };
 
-  home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
+  # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
+
   gtk = {
     enable = true;
-
     theme = {
-      package = "${import ./gruvbox-gtk.nix { inherit pkgs; }}";
+      package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
       name = "Gruvbox-Material-Dark-HIDPI";
-
     };
-
     iconTheme = {
+      package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
       name = "Gruvbox-Material-Dark";
     };
   };
