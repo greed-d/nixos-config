@@ -16,6 +16,12 @@
       x = "exit";
       lg = "lazygit";
       nvd = "neovide";
+
+      dot = "tmux-sessionizer ~/.dotfiles";
+      tns = "tmux new -s";
+      tas = "tmux attach -t";
+      tls = "tmux list-sessions";
+      tds = "tmux detach";
     };
 
     plugins = [
@@ -32,6 +38,7 @@
 
     interactiveShellInit = ''
       set -x XDG_DATA_DIRS $XDG_DATA_DIRS /usr/share /var/lib/flatpak/exports/share $HOME/.local/share/flatpak/exports/share
+      set PATH "$PATH":"$HOME/.local/scripts/"
     '';
   };
 }
