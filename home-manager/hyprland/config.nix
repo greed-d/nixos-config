@@ -91,9 +91,12 @@
         # ];
 
         bezier = [
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "winIn, 0.1, 1.1, 0.1, 1.1"
+          "winOut, 0.3, -0.3, 0, 1"
           "linear, 0, 0, 1, 1"
           "md3_standard, 0.2, 0, 0, 1"
-          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_decel, 0.05, 0.7, 0.4, 1"
           "md3_accel, 0.3, 0, 0.8, 0.15"
           "overshot, 0.05, 0.9, 0.1, 1.1"
           "crazyshot, 0.1, 1.5, 0.76, 0.92 "
@@ -119,9 +122,9 @@
         # ];
 
         animation = [
-          "windows, 1, 3, md3_decel, popin 60%"
-          "windowsIn, 1, 3, md3_decel, popin 60%"
-          "windowsOut, 1, 3, md3_accel, popin 60%"
+          "windows, 1, 3, md3_decel, slide 60%"
+          "windowsIn, 1, 3, md3_decel, slide 60%"
+          "windowsOut, 1, 3, md3_accel, slide 90%"
           "border, 1, 10, default"
           "fade, 1, 3, md3_decel"
           "layersIn, 1, 3, menu_decel, slide"
@@ -144,7 +147,7 @@
         "$mainMod , D, exec, $disc_client"
         "$mainMod , E, exec, $fileManager"
         "$mainMod , T, exec, swaync-client -t -sw"
-        "$mainMod , V, exec, cliphist list | rofi -dmenu -theme ~/.config/rofi/nord.rasi | cliphist decode | wl-copy"
+        "$mainMod , V, exec, pkill rofi || cliphist list | rofi -dmenu -theme ~/.config/rofi/nord.rasi | cliphist decode | wl-copy"
         "$mainMod CONTROL, L, exec, hyprlock"
 
         "$mainMod , U, focusurgentorlast"
@@ -200,12 +203,12 @@
       ];
 
       bindle = [
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
         ", xf86audiomute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         "$mainMod, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
       ];
 
       bindr = [
@@ -241,6 +244,7 @@
         "float, org.telegram.desktop"
         "float, confirmreset"
         "float, file-roller"
+        "float, title:^(About Zen Browser)$"
         "move 1202 670, title:^(Picture-in-Picture)$"
         "size 702 396, title:^(Picture-in-Picture)$"
         "move 1202 670, title:^(Picture in picture)$"
@@ -260,7 +264,7 @@
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
 
-        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian)$"
+        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
         "workspace 1, class:^firefox$"
         "workspace 1, class:^floorp$"
         "workspace 3, class:^obsidian$"
@@ -274,6 +278,7 @@
         "workspace 9  class:^(vesktop)$"
         "workspace 9 silent,  class:^([Aa]rm[Cc]ord)$"
         "workspace 10 silent, class:^org.telegram.desktop$"
+        "workspace 10 silent, class:^TelegramDesktop$"
         "float, class:Plexamp"
         "float, title:fabric"
         "float, title:^qBittorrent v4.6.2$"
