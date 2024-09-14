@@ -191,10 +191,11 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
   #
-  # environment.sessionVariables = {
-  #   NIXOS_OZONE_WL = 1;
-  # };
-  #
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    BROWSER = "Zen-alpha";
+    TERMINAL = "kitty";
+  };
 
   xdg.portal = {
     enable = true;
@@ -204,7 +205,7 @@
     ];
 
     config.common = {
-      default = [ "gtk" ];
+      default = "hyprland;gtk";
       "org.freedesktop.impl.portal.Screencast" = [ pkgs.hyprland ];
     };
 
