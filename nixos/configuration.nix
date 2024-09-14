@@ -159,10 +159,12 @@
     brightnessctl
     catppuccin-sddm
 
+    cloudflare-warp
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
     libsForQt5.qt5.qtquickcontrols2
 
+    qbittorrent
     kitty
     python3
     ripgrep

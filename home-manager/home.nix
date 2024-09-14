@@ -94,6 +94,7 @@
     spotify
     gnome-keyring
     telegram-desktop
+    qbittorrent
 
   ];
 
@@ -121,6 +122,7 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  # programs.home-manager.backupFileExtension = "backup";
   programs.git = {
     enable = true;
     userName = "greed-d";
