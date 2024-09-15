@@ -22,7 +22,7 @@
       ];
       input = {
         kb_layout = "us";
-        follow_mouse = 1;
+        follow_mouse = 0;
         sensitivity = 0;
         touchpad = {
           natural_scroll = true;
@@ -264,6 +264,12 @@
         "idleinhibit fullscreen, class:^(*)$"
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
+
+        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
 
         "opacity 0.88 0.88, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
         "opacity 0.88 0.88, title:^(Spotify Free)$"

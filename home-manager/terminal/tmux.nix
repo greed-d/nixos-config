@@ -72,6 +72,7 @@ in
       {
         plugin = tmux-tokyo-night;
         extraConfig = ''
+          set -g @plugin 'tmux-tokyo-night'
           set -g @tokyo-night-tmux_window_id_style digital
           set -g @tokyo-night-tmux_pane_id_style hsquare
           set -g @tokyo-night-tmux_zoom_id_style dsquare
