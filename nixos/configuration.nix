@@ -164,6 +164,7 @@
     libsForQt5.qt5.qtsvg
     libsForQt5.qt5.qtquickcontrols2
 
+    xwaylandvideobridge
     qbittorrent
     kitty
     python3
