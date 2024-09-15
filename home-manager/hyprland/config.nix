@@ -34,14 +34,15 @@
         "$mainMod" = "SUPER";
         "$terminal" = "kitty";
         "$fileManager" = "thunar";
-        "$menu" = "rofi -show drun -theme ~/.config/rofi/nord.rasi";
+        "$menu" = "rofi -show drun -theme ~/.config/rofi/tokyonight.rasi";
         "$browser" = "firefox";
         "$disc_client" = "vesktop";
 
         layout = "dwindle";
         border_size = 3;
-        "col.active_border" = "rgb(89b482) rgb(1e2122) rgb(1e2122) rgb(89b482)";
-        "col.inactive_border" = "rgb(24273A) rgb(24273A) rgb(24273A) rgb(27273A) 45deg";
+        "col.active_border" = "rgb(7aa2f7) rgb(1e2122) rgb(1e2122) rgb(7aa2f7)";
+        # "col.inactive_border" = "rgb(24273A) rgb(24273A) rgb(24273A) rgb(27273A) 45deg";
+        "col.inactive_border" = "rgb(40486a)";
         gaps_in = 5;
         gaps_out = 10;
       };
@@ -264,7 +265,8 @@
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
 
-        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
+        "opacity 0.88 0.88, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
+        "opacity 0.88 0.88, title:^(Spotify Free)$"
         "workspace 1, class:^firefox$"
         "workspace 1, class:^floorp$"
         "workspace 3, class:^obsidian$"
@@ -275,7 +277,8 @@
         "workspace 7, class:^evince$"
         "workspace 7, class:^org.pwmt.zathura$"
         "workspace 8, class:^Spotify$"
-        "workspace 9  class:^(vesktop)$"
+        "workspace 8, title:^(Spotify Free)$"
+        "workspace 9,  class:^(vesktop)$"
         "workspace 9 silent,  class:^([Aa]rm[Cc]ord)$"
         "workspace 10 silent, class:^org.telegram.desktop$"
         "workspace 10 silent, class:^TelegramDesktop$"
