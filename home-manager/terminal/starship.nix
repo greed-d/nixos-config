@@ -8,7 +8,7 @@
       format = "$battery$directory ";
       right_format = " $git_branch $git_status $cmd_duration";
       directory = {
-        format = "[ 󰀘  ](bg:#a9b665 fg:#1e1e2e)[ $path ](bg:#484b4c fg:#c7b89d)";
+        format = "[ 󰀘  ](bg:#7aa2f7 fg:#1a1b26)[ $path ](bg:#353b45 fg:#BBC3DF)";
         truncation_length = 1;
         fish_style_pwd_dir_length = 1;
       };
@@ -22,7 +22,7 @@
       cmd_duration = {
         min_time = 1;
         # duration & style 
-        format = "[[ 󰔚 ](bg:#32302f fg:#eba0ac bold)$duration ](bg:#32302f fg:#BBC3DF)";
+        format = "[[ 󰔚 ](bg:#32302f fg:#f7768e bold)$duration ](bg:#32302f fg:#BBC3DF)";
         disabled = false;
         style = "bg:none fg:#32302f";
       };

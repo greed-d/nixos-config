@@ -1,4 +1,18 @@
 { pkgs, ... }:
+
+let
+  tmux-tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tokyo-night-tmux";
+    version = "2.0.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "janoamaral";
+      repo = "tokyo-night-tmux";
+      rev = "b45b742eb3fdc01983c21b1763594b549124d065";
+      sha256 = "sha256-k4CbfWdyk7m/T97ytxLOEMUKrkU5iJSIu3lvyT1B1jU=";
+    };
+  };
+
+in
 {
   programs.tmux = {
     enable = true;
@@ -56,23 +70,19 @@
     '';
     plugins = with pkgs; [
       {
-        plugin = tmuxPlugins.power-theme;
+        plugin = tmux-tokyo-night;
         extraConfig = ''
-          set -g @plugin 'wfxr/tmux-power'
-          set -g @plugin 'wfxr/tmux-net-speed'
-          set -g @tmux_power_theme 'everforest'
-          set -g @tmux_power_date_icon ' '
-          set -g @tmux_power_time_icon ' '
-          set -g @tmux_power_user_icon ' '
-          set -g @tmux_power_session_icon ' '
-          set -g @tmux_power_show_upload_speed    true
-          set -g @tmux_power_show_download_speed  true
-          set -g @tmux_power_show_web_reachable   true
-          set -g @tmux_power_right_arrow_icon     ''
-          set -g @tmux_power_left_arrow_icon      ''
-          set -g @tmux_power_upload_speed_icon    '󰕒'
-          set -g @tmux_power_download_speed_icon  '󰇚'
-          set -g @tmux_power_prefix_highlight_pos 'R'
+          set -g @tokyo-night-tmux_window_id_style digital
+          set -g @tokyo-night-tmux_pane_id_style hsquare
+          set -g @tokyo-night-tmux_zoom_id_style dsquare
+          set -g @tokyo-night-tmux_date_format YMD
+          set -g @tokyo-night-tmux_time_format 24H
+          set -g @tokyo-night-tmux_show_music 0
+          set -g @tokyo-night-tmux_show_netspeed 0
+          set -g @tokyo-night-tmux_netspeed_showip 0      # Display IPv4 address (default 0)
+          set -g @tokyo-night-tmux_show_path 1
+          set -g @tokyo-night-tmux_path_format full # 'relative' or 'full'
+          set -g @tokyo-night-tmux_show_battery_widget 0
         '';
       }
       {
