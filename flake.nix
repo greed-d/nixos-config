@@ -25,6 +25,11 @@
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
     };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -12,6 +12,8 @@
     # inputs.nix-colors.homeManagerModule
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+
+    inputs.spicetify-nix.homeManagerModules.default
     ./hyprland
     ./terminal
   ];
@@ -71,6 +73,7 @@
     authenticator
     btop
     tlp
+    mpv
     nwg-look
     bibata-cursors
     grimblast
@@ -91,10 +94,10 @@
     wf-recorder
     obsidian
     vesktop
-    spotify
     gnome-keyring
     telegram-desktop
     qbittorrent
+    mpv
 
   ];
 
@@ -105,18 +108,32 @@
     size = 24;
   };
 
+  programs.spicetify = {
+    enable = true;
+    theme = {
+      name = "Tokyo";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "evening-hs";
+        repo = "Spotify-Tokyo-Night-Theme";
+        rev = "d88ca06eaeeb424d19e0d6f7f8e614e4bce962be";
+        sha256 = "sha256-cLj9v8qtHsdV9FfzV2Qf4pWO8AOBXu51U/lUMvdEXAk=";
+      };
+    };
+    colorScheme = "Night";
+  };
   # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
 
   gtk = {
     enable = true;
     theme = {
-      package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
-      name = "Gruvbox-Material-Dark-HIDPI";
+      package = pkgs.tokyonight-gtk-theme;
+      name = "Tokyonight-Dark";
     };
     iconTheme = {
-      package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
-      name = "Gruvbox-Material-Dark";
+      package = pkgs.tokyonight-gtk-theme;
+      name = "Tokyonight-Dark";
     };
   };
 
