@@ -97,6 +97,7 @@
     telegram-desktop
     qbittorrent
     mpv
+    swww
 
   ];
 

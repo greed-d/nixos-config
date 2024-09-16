@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  tmux-tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
+  tmux-tokyonight = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tokyo-night-tmux";
     version = "2.0.0";
     src = pkgs.fetchFromGitHub {
@@ -9,6 +9,28 @@ let
       repo = "tokyo-night-tmux";
       rev = "b45b742eb3fdc01983c21b1763594b549124d065";
       sha256 = "sha256-k4CbfWdyk7m/T97ytxLOEMUKrkU5iJSIu3lvyT1B1jU=";
+    };
+  };
+
+  tmux-tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-tokyo-night";
+    version = "1199b24e1a166f1100c10b02c428aa10751d7f87";
+    src = pkgs.fetchFromGitHub {
+      owner = "fabioluciano";
+      repo = "tmux-tokyo-night";
+      rev = "1199b24e1a166f1100c10b02c428aa10751d7f87";
+      sha256 = "sha256-QFFlgqbYeTqT2NmOkPHPyPaVEDnDQSYXJGqWuwTsqpo=";
+    };
+  };
+
+  dracula = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "dracula";
+    version = "2.3.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "dracula";
+      repo = "tmux";
+      rev = "6999a95205853b4138937ba3d164a455aac83c58";
+      sha256 = "IrNDBRopg9lgN5AfeXbhhh+uXiWQD2bjS1sNOgOJsu4=";
     };
   };
 
@@ -69,21 +91,27 @@ in
 
     '';
     plugins = with pkgs; [
+      # {
+      #   plugin = tmux-tokyonight;
+      #   extraConfig = ''
+      #     set -g @plugin "janoamaral/tokyo-night-tmux"
+      #     set -g @tokyo-night-tmux_window_id_style digital
+      #     set -g @tokyo-night-tmux_pane_id_style hsquare
+      #     set -g @tokyo-night-tmux_zoom_id_style dsquare
+      #     set -g @tokyo-night-tmux_date_format YMD
+      #     set -g @tokyo-night-tmux_time_format 24H
+      #     set -g @tokyo-night-tmux_show_music 0
+      #     set -g @tokyo-night-tmux_show_netspeed 0
+      #     set -g @tokyo-night-tmux_netspeed_showip 0      # Display IPv4 address (default 0)
+      #     set -g @tokyo-night-tmux_show_path 1
+      #     set -g @tokyo-night-tmux_path_format full # 'relative' or 'full'
+      #     set -g @tokyo-night-tmux_show_battery_widget 0
+      #   '';
+      # }
       {
         plugin = tmux-tokyo-night;
         extraConfig = ''
-          set -g @plugin 'tmux-tokyo-night'
-          set -g @tokyo-night-tmux_window_id_style digital
-          set -g @tokyo-night-tmux_pane_id_style hsquare
-          set -g @tokyo-night-tmux_zoom_id_style dsquare
-          set -g @tokyo-night-tmux_date_format YMD
-          set -g @tokyo-night-tmux_time_format 24H
-          set -g @tokyo-night-tmux_show_music 0
-          set -g @tokyo-night-tmux_show_netspeed 0
-          set -g @tokyo-night-tmux_netspeed_showip 0      # Display IPv4 address (default 0)
-          set -g @tokyo-night-tmux_show_path 1
-          set -g @tokyo-night-tmux_path_format full # 'relative' or 'full'
-          set -g @tokyo-night-tmux_show_battery_widget 0
+          set -g @theme_variation 'moon'
         '';
       }
       # {
@@ -92,6 +120,11 @@ in
       #     set -g @catppuccin_flavour "mocha"
       #     set -g @catppuccin_window_tabs_enabled on
       #     set -g @catppuccin_date_time "%H:%M"
+      #     set -g @catppuccin_window_left_separator "█"
+      #     set -g @catppuccin_window_middle_separator "█"
+      #     set -g @catppuccin_window_right_separator "█ "
+      #     set -g @catppuccin_status_right_separator "█"
+      #     set -g @catppuccin_status_left_separator "█"
       #   '';
       # }
 

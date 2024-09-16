@@ -268,12 +268,13 @@
 
         "opacity 0.0 override, class:^(xwaylandvideobridge)$"
         "noanim, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(grimblast)$"
         "noinitialfocus, class:^(xwaylandvideobridge)$"
         "maxsize 1 1, class:^(xwaylandvideobridge)$"
         "noblur, class:^(xwaylandvideobridge)$"
 
-        "opacity 0.88 0.88, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
-        "opacity 0.88 0.88, title:^(Spotify Free)$"
+        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
+        # "opacity 0.88 0.88, title:^(Spotify Free)$"
         "workspace 1, class:^firefox$"
         "workspace 1, class:^floorp$"
         "workspace 3, class:^obsidian$"
