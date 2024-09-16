@@ -109,10 +109,7 @@ in
       #   '';
       # }
       {
-        plugin = tmux-tokyo-night;
-        extraConfig = ''
-          set -g @theme_variation 'moon'
-        '';
+        plugin = dracula;
       }
       # {
       #   plugin = tmuxPlugins.catppuccin;
