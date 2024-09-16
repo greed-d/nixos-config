@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   inputs,
   config,
@@ -9,6 +8,9 @@
   ...
 }:
 
+let
+  tokyo-night-sddm = pkgs.libsForQt5.callPackage ./tokyo-night-sddm/default.nix { };
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -57,7 +59,7 @@
   services.xserver.displayManager.lightdm.enable = false;
   services.displayManager.sddm.package = pkgs.kdePackages.sddm;
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "${pkgs.callPackage ./sddm.nix { }}";
+  services.displayManager.sddm.theme = "tokyo-night-sddm";
   # services.displayManager.sddm = {
   #   catppuccin = {
   #     enable = true;
@@ -158,8 +160,8 @@
     wl-clipboard
     brightnessctl
     catppuccin-sddm
+    tokyo-night-sddm
 
-    cloudflare-warp
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
     libsForQt5.qt5.qtquickcontrols2
