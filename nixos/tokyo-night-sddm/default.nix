@@ -32,6 +32,8 @@ stdenvNoCC.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/share/sddm/themes
     cp -aR $src $out/share/sddm/themes/tokyo-night-sddm
+    cd $out/share/sddm/themes/tokyo-night-sddm
+    vim -c '%s/win11\.png/tokyocity.png/g | wq' inputfile
   '';
 
 }
