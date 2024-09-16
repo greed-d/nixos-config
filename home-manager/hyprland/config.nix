@@ -187,7 +187,6 @@
         "$mainMod , grave, togglespecialworkspace, "
         "$mainMod SHIFT, grave, movetoworkspace, special"
 
-        ",Print,exec,grimblast --notify save output ~/Pictures/Screenshots/$(date +'%Y%m%d%H%M%S_1.png')"
         "$mainMod ,Print,exec,grimblast --notify save screen"
         "$mainMod SHIFT,Print,exec,grimblast save output - | swappy -f -"
         "$mainMod CONTROL,S,exec,grimblast --notify save area $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png')"
@@ -211,6 +210,7 @@
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
         ", xf86audiomute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         "$mainMod, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",Print,exec,grimblast --notify save output ~/Pictures/Screenshots/$(date +'%Y%m%d%H%M%S_1.png')"
       ];
 
       bindr = [

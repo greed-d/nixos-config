@@ -32,7 +32,7 @@ in
       #color = rgba(255, 255, 255, 0.6)
       font_size = 90
       font_family = JetBrains Mono Nerd Font Mono ExtraBold
-      position = 0, -475
+      position = 0, -320
       halign = center
       valign = top
     }
@@ -46,7 +46,7 @@ in
     #   #color = rgba(255, 255, 255, 0.6)
     #   font_size = 20
     #   font_family = JetBrains Mono Nerd Font Mono
-    #   position = 0, -95
+    #   position = 0, 30
     #   halign = center
     #   valign = center
     #
@@ -63,7 +63,7 @@ in
       border_color = rgba(255, 255, 255, 0)
       rotate = 0
 
-      position = 0, -130
+      position = 0, 30
       halign = center
       valign = center
     }
@@ -76,7 +76,7 @@ in
       color = rgba(235, 219, 178, .9)
       font_size = 16
       font_family = JetBrainsMono Nerd Font
-      position = 0, -130
+      position = 0, 30
       halign = center
       valign = center
     }
@@ -104,7 +104,7 @@ in
       font_family = JetBrains Mono Nerd Font Mono
       placeholder_text = <i><span foreground="##cdd6f4">Password?....</span></i>
       hide_input = false
-      position = 0, -200
+      position = 0, -30
       halign = center
       valign = center
     }
