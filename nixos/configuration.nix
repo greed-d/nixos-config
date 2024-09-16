@@ -57,7 +57,7 @@
   services.xserver.displayManager.lightdm.enable = false;
   services.displayManager.sddm.package = pkgs.kdePackages.sddm;
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "catppuccin-mocha";
+  services.displayManager.sddm.theme = "${import ./sddm.nix { inherit pkgs; }}";
   # services.displayManager.sddm = {
   #   catppuccin = {
   #     enable = true;

@@ -5,8 +5,8 @@
     shell = "${pkgs.fish}/bin/fish";
     terminal = "xterm-kitty";
     extraConfig = ''
-      # set -g @plugin 'fabioluciano/tmux-tokyo-night'
-      set -g @plugin 'janoamaral/tokyo-night-tmux'
+       set -g @plugin 'fabioluciano/tmux-tokyo-night'
+      # set -g @plugin 'janoamaral/tokyo-night-tmux'
       set -ag terminal-overrides ",$TERM:RGB"
 
       set -g prefix C-Space
@@ -57,23 +57,6 @@
 
     '';
     plugins = with pkgs; [
-      # {
-      #   plugin = tmux-tokyonight;
-      #   extraConfig = ''
-      #     set -g @plugin "janoamaral/tokyo-night-tmux"
-      #     set -g @tokyo-night-tmux_window_id_style digital
-      #     set -g @tokyo-night-tmux_pane_id_style hsquare
-      #     set -g @tokyo-night-tmux_zoom_id_style dsquare
-      #     set -g @tokyo-night-tmux_date_format YMD
-      #     set -g @tokyo-night-tmux_time_format 24H
-      #     set -g @tokyo-night-tmux_show_music 0
-      #     set -g @tokyo-night-tmux_show_netspeed 0
-      #     set -g @tokyo-night-tmux_netspeed_showip 0      # Display IPv4 address (default 0)
-      #     set -g @tokyo-night-tmux_show_path 1
-      #     set -g @tokyo-night-tmux_path_format full # 'relative' or 'full'
-      #     set -g @tokyo-night-tmux_show_battery_widget 0
-      #   '';
-      # }
       {
         plugin = pkgs.tmuxPlugins.mkTmuxPlugin {
           pluginName = "tokyo-nigth-tmux";
@@ -101,6 +84,26 @@
           '';
         };
       }
+      # {
+      #   plugin = pkgs.tmuxPlugins.mkTmuxPlugin {
+      #     pluginName = "tmux-tokyo-night";
+      #     rtpFilePath = "tmux-tokyo-night.tmux";
+      #     version = "master";
+      #     src = pkgs.fetchFromGitHub {
+      #       owner = "fabioluciano";
+      #       repo = "tmux-tokyo-night";
+      #       rev = "156a5a010928ebae45f0d26c3af172e0425fdda8";
+      #       sha256 = "sha256-tANO0EyXiplXPitLrwfyOEliHUZkCzDJ6nRjEVps180=";
+      #     };
+      #   };
+      #   extraConfig = ''
+      #     set -g @theme_variation 'night'
+      #     set -g @theme_enable_icons 0
+      #     set -g @theme_left_separator '█'
+      #     set -g @theme_right_separator '█'
+      #     set -g @theme_plugins 'weather'
+      #   '';
+      # }
       # {
       #   plugin = tmuxPlugins.catppuccin;
       #   extraConfig = ''
