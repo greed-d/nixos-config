@@ -1,46 +1,12 @@
 { pkgs, ... }:
-
-let
-  tmux-tokyonight = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tokyo-night-tmux";
-    version = "2.0.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "janoamaral";
-      repo = "tokyo-night-tmux";
-      rev = "b45b742eb3fdc01983c21b1763594b549124d065";
-      sha256 = "sha256-k4CbfWdyk7m/T97ytxLOEMUKrkU5iJSIu3lvyT1B1jU=";
-    };
-  };
-
-  tmux-tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tmux-tokyo-night";
-    version = "1199b24e1a166f1100c10b02c428aa10751d7f87";
-    src = pkgs.fetchFromGitHub {
-      owner = "fabioluciano";
-      repo = "tmux-tokyo-night";
-      rev = "1199b24e1a166f1100c10b02c428aa10751d7f87";
-      sha256 = "sha256-QFFlgqbYeTqT2NmOkPHPyPaVEDnDQSYXJGqWuwTsqpo=";
-    };
-  };
-
-  dracula = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "dracula";
-    version = "2.3.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "dracula";
-      repo = "tmux";
-      rev = "6999a95205853b4138937ba3d164a455aac83c58";
-      sha256 = "IrNDBRopg9lgN5AfeXbhhh+uXiWQD2bjS1sNOgOJsu4=";
-    };
-  };
-
-in
 {
   programs.tmux = {
     enable = true;
     shell = "${pkgs.fish}/bin/fish";
     terminal = "xterm-kitty";
     extraConfig = ''
+      # set -g @plugin 'fabioluciano/tmux-tokyo-night'
+      set -g @plugin 'janoamaral/tokyo-night-tmux'
       set -ag terminal-overrides ",$TERM:RGB"
 
       set -g prefix C-Space
@@ -109,7 +75,31 @@ in
       #   '';
       # }
       {
-        plugin = dracula;
+        plugin = pkgs.tmuxPlugins.mkTmuxPlugin {
+          pluginName = "tokyo-nigth-tmux";
+          rtpFilePath = "tokyo-night.tmux";
+          version = "master";
+          src = pkgs.fetchFromGitHub {
+            owner = "janoamaral";
+            repo = "tokyo-night-tmux";
+            rev = "b45b742eb3fdc01983c21b1763594b549124d065";
+            sha256 = "sha256-k4CbfWdyk7m/T97ytxLOEMUKrkU5iJSIu3lvyT1B1jU=";
+          };
+          extraConfig = ''
+            set -g @tokyo-night-tmux_pane_id_style hsquare
+            set -g @tokyo-night-tmux_window_id_style fsquare
+            set -g @tokyo-night-tmux_zoom_id_style dsquare
+            set -g @tokyo-night-tmux_show_datetime 0
+            set -g @tokyo-night-tmux_date_format MYD
+            set -g @tokyo-night-tmux_time_format 12H
+            set -g @tokyo-night-tmux_show_music 0
+            set -g @tokyo-night-tmux_show_netspeed 0
+            set -g @tokyo-night-tmux_netspeed_showip 0      # Display IPv4 address (default 0)
+            set -g @tokyo-night-tmux_show_path 1
+            set -g @tokyo-night-tmux_path_format full # 'relative' or 'full'
+            set -g @tokyo-night-tmux_show_battery_widget 0
+          '';
+        };
       }
       # {
       #   plugin = tmuxPlugins.catppuccin;
