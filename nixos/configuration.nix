@@ -8,13 +8,14 @@
   ...
 }:
 
-let
-  tokyo-night-sddm = pkgs.libsForQt5.callPackage ./tokyo-night-sddm/default.nix { };
-in
+# let
+#   tokyo-night-sddm = pkgs.libsForQt5.callPackage ./tokyo-night-sddm/default.nix { };
+# in
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./sddm
   ];
 
   # Bootloader.
@@ -58,8 +59,8 @@ in
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = false;
   services.displayManager.sddm.package = pkgs.kdePackages.sddm;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "tokyo-night-sddm";
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.theme = "tokyo-night-sddm";
   # services.displayManager.sddm = {
   #   catppuccin = {
   #     enable = true;
@@ -160,7 +161,7 @@ in
     wl-clipboard
     brightnessctl
     catppuccin-sddm
-    tokyo-night-sddm
+    # tokyo-night-sddm
 
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
