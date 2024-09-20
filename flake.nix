@@ -20,11 +20,6 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix.inputs.gruvbox-material-gtk = {
-      url = "github:TheGreatMcPain/gruvbox-material-gtk";
-      flake = false;
-    };
-
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
     };

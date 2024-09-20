@@ -119,7 +119,7 @@ in
 
   # catppuccin.flavor = "mocha";
 
-  # home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
+  home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
