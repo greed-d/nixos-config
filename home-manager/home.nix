@@ -99,12 +99,12 @@
 
   ];
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-  };
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   package = pkgs.bibata-cursors;
+  #   name = "Bibata-Modern-Classic";
+  #   size = 24;
+  # };
 
   # programs.spicetify = {
   #   enable = true;
@@ -112,38 +112,9 @@
   # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
 
-  catppuccin.flavor = "mocha";
-
-  # gtk = {
-  #   catppuccin = {
-  #     enable = true;
-  #     flavor = "mocha";
-  #     accent = "mauve";
-  #     size = "standard";
-  #     icon = {
-  #       enable = true;
-  #     };
-  #   };
-  # };
+  # catppuccin.flavor = "mocha";
 
   # home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
-
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.catppuccin-gtk;
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
-      # themeVariant = "teal";
-    };
-    # iconTheme = {
-    #   package = pkgs.tokyonight-gtk-theme.override {
-    #     iconVariants = [ "Moon" ];
-    #     sizeVariants = [ "standard" ];
-    #   };
-    #   name = "Tokyonight-Moon";
-    # };
-
-  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
