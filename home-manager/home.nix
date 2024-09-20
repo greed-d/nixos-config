@@ -13,7 +13,6 @@ in
   imports = [
     ./hyprland
     ./terminal
-    ./gtk.nix
     inputs.spicetify-nix.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
@@ -103,12 +102,12 @@ in
 
   ];
 
-  # home.pointerCursor = {
-  #   gtk.enable = true;
-  #   package = pkgs.bibata-cursors;
-  #   name = "Bibata-Modern-Classic";
-  #   size = 24;
-  # };
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };
 
   programs.spicetify = {
     enable = true;
@@ -117,8 +116,28 @@ in
   # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
 
-  # catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
+  catppuccin.flavor = "mocha";
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        accent = "lavender";
+        flavor = "mocha";
+      };
+    };
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "compact";
+        # tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
+  };
   home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
 
   # Enable home-manager and git
