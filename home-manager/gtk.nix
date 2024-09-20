@@ -20,7 +20,7 @@ in
   };
 
   qt = {
-    enable = true;
+    enable = false;
     platformTheme = "gtk";
     style.name = "gtk2";
   };
