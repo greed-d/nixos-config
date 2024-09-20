@@ -5,11 +5,15 @@
   pkgs,
   ...
 }:
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+in
 {
   # You can import other home-manager modules here
   imports = [
     ./hyprland
     ./terminal
+    ./gtk.nix
     inputs.spicetify-nix.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
@@ -106,9 +110,10 @@
   #   size = 24;
   # };
 
-  # programs.spicetify = {
-  #   enable = true;
-  # };
+  programs.spicetify = {
+    enable = true;
+    theme = spicePkgs.themes.catppuccin;
+  };
   # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
 

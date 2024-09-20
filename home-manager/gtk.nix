@@ -13,8 +13,10 @@ in
 {
 
   home.pointerCursor = {
-    name = "Catppuccin-Mocha-Lavender-Cursors";
-    package = pkgs.catppuccin-cursors.mochaLavender;
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
   };
 
   qt = {
@@ -59,34 +61,34 @@ in
     "org/gnome/desktop/interface" = {
       font-name = "Red Hat Text 10";
       monospace-font-name = "Red Hat Mono 10";
-      cursor-theme = "Catppuccin-Mocha-Lavender-Cursors";
+      # cursor-theme = "";
     };
-    "org/gnome/desktop/wm/preferences" = {
-      resize-with-right-button = true;
-    };
-    # keybindings
-    "org/gnome/desktop/wm/keybindings" = {
-      close = [ "<Super>c" ];
-      toggle-fullscreen = [ "<Super>f" ];
-      move-to-monitor-left = [ "<Super><Shift>h" ];
-      move-to-monitor-down = [ "<Super><Shift>j" ];
-      move-to-monitor-up = [ "<Super><Shift>k" ];
-      move-to-monitor-right = [ "<Super><Shift>l" ];
-      switch-to-workspace-left = [ "<Super><Shift>Tab" ];
-      switch-to-workspace-right = [ "<Super>Tab" ];
-    };
-    # rice
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "Vitals@CoreCoding.com"
-        "pano@elhan.io"
-      ];
-    };
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-    };
+    # "org/gnome/desktop/wm/preferences" = {
+    #   resize-with-right-button = true;
+    # };
+    # # keybindings
+    # "org/gnome/desktop/wm/keybindings" = {
+    #   close = [ "<Super>c" ];
+    #   toggle-fullscreen = [ "<Super>f" ];
+    #   move-to-monitor-left = [ "<Super><Shift>h" ];
+    #   move-to-monitor-down = [ "<Super><Shift>j" ];
+    #   move-to-monitor-up = [ "<Super><Shift>k" ];
+    #   move-to-monitor-right = [ "<Super><Shift>l" ];
+    #   switch-to-workspace-left = [ "<Super><Shift>Tab" ];
+    #   switch-to-workspace-right = [ "<Super>Tab" ];
+    # };
+    # # rice
+    # "org/gnome/shell" = {
+    #   disable-user-extensions = false;
+    #   enabled-extensions = [
+    #     "user-theme@gnome-shell-extensions.gcampax.github.com"
+    #     "Vitals@CoreCoding.com"
+    #     "pano@elhan.io"
+    #   ];
+    # };
+    # "org/gnome/shell/extensions/user-theme" = {
+    #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+    # };
   };
   xdg.configFile = {
     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";

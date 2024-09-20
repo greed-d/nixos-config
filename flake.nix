@@ -16,8 +16,11 @@
     };
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
-    gruvbox-material-gtk = {
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    spicetify-nix.inputs.gruvbox-material-gtk = {
       url = "github:TheGreatMcPain/gruvbox-material-gtk";
       flake = false;
     };
