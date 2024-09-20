@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Gruvbox Material Dark Hard";
+    theme = "Catppuccin Mocha";
 
     font = {
       name = "JetBrainsMono Nerd Font";
@@ -12,7 +12,7 @@
 
     settings = {
       confirm_os_window_close = 0;
-      background_opacity = "0.75";
+      # background_opacity = "0.75";
       window_padding_width = 10;
       scrollback_lines = 10000;
       enable_audio_bell = false;

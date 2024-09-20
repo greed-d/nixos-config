@@ -22,7 +22,7 @@
       ];
       input = {
         kb_layout = "us";
-        follow_mouse = 1;
+        follow_mouse = 0;
         sensitivity = 0;
         touchpad = {
           natural_scroll = true;
@@ -39,7 +39,7 @@
         "$disc_client" = "vesktop";
 
         layout = "dwindle";
-        border_size = 3;
+        border_size = 2;
         "col.active_border" = "rgb(89b482) rgb(1e2122) rgb(1e2122) rgb(89b482)";
         "col.inactive_border" = "rgb(24273A) rgb(24273A) rgb(24273A) rgb(27273A) 45deg";
         gaps_in = 5;
@@ -54,7 +54,7 @@
       misc = {
         force_default_wallpaper = -1;
         disable_hyprland_logo = false;
-        enable_swallow = false;
+        enable_swallow = true;
       };
 
       binds = {
@@ -264,7 +264,7 @@
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
 
-        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
+        # "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
         "workspace 1, class:^firefox$"
         "workspace 1, class:^floorp$"
         "workspace 3, class:^obsidian$"

@@ -66,6 +66,8 @@
     wayland
     direnv
     gnome-software
+    armcord
+    swww
 
     lazygit
     authenticator
@@ -111,8 +113,8 @@
   gtk = {
     enable = true;
     theme = {
-      package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
-      name = "Gruvbox-Material-Dark-HIDPI";
+      package = "catppuccin-gtk";
+      name = "Catppuccin Mocha";
     };
     iconTheme = {
       package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
