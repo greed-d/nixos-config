@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Catppuccin Mocha";
+    catppuccin.enable = true;
 
     font = {
       name = "JetBrainsMono Nerd Font";

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.fish = {
+    catppuccin.enable = true;
     enable = true;
     shellAliases = {
       ls = "eza --icons --git --group-directories-first";

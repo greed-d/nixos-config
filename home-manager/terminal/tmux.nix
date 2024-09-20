@@ -4,6 +4,7 @@
     enable = true;
     shell = "${pkgs.fish}/bin/fish";
     terminal = "xterm-kitty";
+    catppuccin.enable = true;
     extraConfig = ''
       set -ag terminal-overrides ",$TERM:RGB"
 
@@ -55,26 +56,6 @@
 
     '';
     plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.power-theme;
-        extraConfig = ''
-          set -g @plugin 'wfxr/tmux-power'
-          set -g @plugin 'wfxr/tmux-net-speed'
-          set -g @tmux_power_theme 'everforest'
-          set -g @tmux_power_date_icon ' '
-          set -g @tmux_power_time_icon ' '
-          set -g @tmux_power_user_icon ' '
-          set -g @tmux_power_session_icon ' '
-          set -g @tmux_power_show_upload_speed    true
-          set -g @tmux_power_show_download_speed  true
-          set -g @tmux_power_show_web_reachable   true
-          set -g @tmux_power_right_arrow_icon     ''
-          set -g @tmux_power_left_arrow_icon      ''
-          set -g @tmux_power_upload_speed_icon    '󰕒'
-          set -g @tmux_power_download_speed_icon  '󰇚'
-          set -g @tmux_power_prefix_highlight_pos 'R'
-        '';
-      }
       {
         plugin = tmuxPlugins.vim-tmux-navigator;
         extraConfig = ''

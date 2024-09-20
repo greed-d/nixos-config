@@ -8,12 +8,10 @@
 {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
     ./hyprland
     ./terminal
+    inputs.spicetify-nix.homeManagerModules.default
+    inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
   nixpkgs = {
@@ -66,13 +64,13 @@
     wayland
     direnv
     gnome-software
-    armcord
-    swww
 
+    armcord
     lazygit
     authenticator
     btop
     tlp
+    mpv
     nwg-look
     bibata-cursors
     grimblast
@@ -80,12 +78,11 @@
     starship
     zoxide
     webkitgtk
-    tmux
     hyprpanel
-    hyprpicker
+    # hyprpicker
     hypridle
-    hyprpaper
-    hyprlock
+    # hyprpaper
+    # hyprlock
     grim
     slurp
     wl-clip-persist
@@ -93,10 +90,12 @@
     wf-recorder
     obsidian
     vesktop
-    spotify
     gnome-keyring
     telegram-desktop
     qbittorrent
+    mpv
+    swww
+    mpvScripts.thumbfast
 
   ];
 
@@ -107,19 +106,43 @@
     size = 24;
   };
 
+  # programs.spicetify = {
+  #   enable = true;
+  # };
   # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
+
+  catppuccin.flavor = "mocha";
+
+  # gtk = {
+  #   catppuccin = {
+  #     enable = true;
+  #     flavor = "mocha";
+  #     accent = "mauve";
+  #     size = "standard";
+  #     icon = {
+  #       enable = true;
+  #     };
+  #   };
+  # };
+
+  # home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
 
   gtk = {
     enable = true;
     theme = {
-      package = "catppuccin-gtk";
-      name = "Catppuccin Mocha";
+      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      # themeVariant = "teal";
     };
-    iconTheme = {
-      package = "${pkgs.callPackage ./gruvbox-gtk.nix { inherit pkgs; }}";
-      name = "Gruvbox-Material-Dark";
-    };
+    # iconTheme = {
+    #   package = pkgs.tokyonight-gtk-theme.override {
+    #     iconVariants = [ "Moon" ];
+    #     sizeVariants = [ "standard" ];
+    #   };
+    #   name = "Tokyonight-Moon";
+    # };
+
   };
 
   # Enable home-manager and git
