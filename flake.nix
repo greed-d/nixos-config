@@ -8,7 +8,7 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    catppuccin.url = "github:catppuccin/nix";
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -16,7 +16,7 @@
     };
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
     gruvbox-material-gtk = {
       url = "github:TheGreatMcPain/gruvbox-material-gtk";
       flake = false;
@@ -33,6 +33,7 @@
       nixpkgs,
       home-manager,
       hyprpanel,
+      catppuccin,
       ...
     }@inputs:
     let
