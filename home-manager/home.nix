@@ -2,6 +2,7 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
+  config,
   pkgs,
   ...
 }:
@@ -111,7 +112,22 @@ in
 
   programs.spicetify = {
     enable = true;
+
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      hidePodcasts
+      shuffle # shuffle+ (special characters are sanitized out of extension names)
+    ];
+    enabledCustomApps = with spicePkgs.apps; [
+      newReleases
+      ncsVisualizer
+    ];
+    # enabledSnippets = with spicePkgs.snippets; [
+    # rotating-coverart
+    # pointer
+    # ];
     theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
   };
   # home.file.".icons/Gruvbox-Material-Dark".source = "${inputs.gruvbox-material-gtk}/icons/Gruvbox-Material-Dark";
   # home.file.".themes/Gruvbox-Material-Dark-HIDPI".source = "${inputs.gruvbox-material-gtk}/themes/Gruvbox-Material-Dark-HIDPI";
@@ -129,16 +145,41 @@ in
       };
     };
     theme = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+      name = "Catppuccin-Macchiato-Compact-Pink-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "lavender" ];
         size = "compact";
-        # tweaks = [ "rimless" ];
         variant = "mocha";
       };
     };
   };
-  home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
+
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  };
+
+  # gtk = {
+  #   enable = true;
+  #   iconTheme = {
+  #     name = "Papirus-Dark";
+  #     package = pkgs.catppuccin-papirus-folders.override {
+  #       accent = "lavender";
+  #       flavor = "mocha";
+  #     };
+  #   };
+  #   theme = {
+  #     name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+  #     package = pkgs.catppuccin-gtk.override {
+  #       accents = [ "lavender" ];
+  #       size = "compact";
+  #       # tweaks = [ "rimless" ];
+  #       variant = "mocha";
+  #     };
+  #   };
+  # };
+  # home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
