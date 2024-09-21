@@ -6,6 +6,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }:
 
@@ -25,7 +26,12 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-      catppuccin.enable = true;
+      splashImage = lib.mkForce ./catppuccin_background.png;
+      catppuccin = {
+        enable = true;
+        flavor = "mocha";
+
+      };
     };
   };
 
