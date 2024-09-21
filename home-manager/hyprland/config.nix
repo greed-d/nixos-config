@@ -69,7 +69,7 @@
         blur = {
           enabled = true;
           size = 5;
-          passes = 3;
+          passes = 4;
           new_optimizations = "on";
           ignore_opacity = "on";
         };
@@ -264,7 +264,7 @@
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
 
-        # "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|ArmCord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
+        "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|[Aa]rm[Cc]ord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
         "workspace 1, class:^firefox$"
         "workspace 1, class:^floorp$"
         "workspace 3, class:^obsidian$"

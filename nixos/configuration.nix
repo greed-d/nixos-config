@@ -25,11 +25,7 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-    };
-    grub2-theme = {
-      enable = true;
-      theme = "vimix";
-      footer = true;
+      catppuccin.enable = true;
     };
   };
 

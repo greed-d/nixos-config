@@ -1,8 +1,7 @@
-
-{ ... }: 
+{ ... }:
 {
   imports = [
-    ./starship.nix
+    # ./starship.nix
     ./kitty.nix
     ./fish.nix
     ./zoxide.nix

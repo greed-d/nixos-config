@@ -8,6 +8,7 @@
 }:
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+
 in
 {
   # You can import other home-manager modules here
@@ -159,30 +160,10 @@ in
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
-
-  # gtk = {
-  #   enable = true;
-  #   iconTheme = {
-  #     name = "Papirus-Dark";
-  #     package = pkgs.catppuccin-papirus-folders.override {
-  #       accent = "lavender";
-  #       flavor = "mocha";
-  #     };
-  #   };
-  #   theme = {
-  #     name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-  #     package = pkgs.catppuccin-gtk.override {
-  #       accents = [ "lavender" ];
-  #       size = "compact";
-  #       # tweaks = [ "rimless" ];
-  #       variant = "mocha";
-  #     };
-  #   };
-  # };
-  # home.sessionVariables.GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
-
+  # programs.starship.enable = true;
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  # programs.home-manager.buildFileBackup = "backup";
   # programs.home-manager.backupFileExtension = "backup";
   programs.git = {
     enable = true;

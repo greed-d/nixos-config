@@ -38,6 +38,7 @@
     ];
 
     interactiveShellInit = ''
+      starship init fish | source
       set -x XDG_DATA_DIRS $XDG_DATA_DIRS /usr/share /var/lib/flatpak/exports/share $HOME/.local/share/flatpak/exports/share
       set PATH "$PATH":"$HOME/.local/scripts/"
       # set -x GTK_THEME "catppuccin-mocha-compact-lavender-dark"

@@ -57,6 +57,7 @@
           modules = [
             ./nixos/configuration.nix
             inputs.grub2-themes.nixosModules.default
+            catppuccin.nixosModules.catppuccin
           ];
 
         };
