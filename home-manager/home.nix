@@ -73,7 +73,6 @@ in
     armcord
     lazygit
     authenticator
-    btop
     tlp
     mpv
     nwg-look
@@ -101,6 +100,8 @@ in
     mpv
     swww
     mpvScripts.thumbfast
+    waybar
+    fzf
 
   ];
 
@@ -146,7 +147,7 @@ in
       };
     };
     theme = {
-      name = "Catppuccin-Macchiato-Compact-Pink-Dark";
+      name = "catppuccin-mocha-lavander-compact";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "lavender" ];
         size = "compact";
@@ -160,7 +161,12 @@ in
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
-  # programs.starship.enable = true;
+  programs.btop.enable = true;
+  programs.btop.catppuccin.enable = true;
+  programs.zellij = {
+    enable = true;
+    catppuccin.enable = true;
+  };
   # Enable home-manager and git
   programs.home-manager.enable = true;
   # programs.home-manager.buildFileBackup = "backup";

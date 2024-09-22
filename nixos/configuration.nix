@@ -26,11 +26,10 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-      splashImage = lib.mkForce ./catppuccin_background.png;
+      # splashImage = lib.mkForce ./catppuccin_background.png;
       catppuccin = {
         enable = true;
         flavor = "mocha";
-
       };
     };
   };

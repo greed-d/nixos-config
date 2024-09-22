@@ -20,9 +20,9 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    grub2-themes = {
-      url = "github:vinceliuice/grub2-themes";
-    };
+    # grub2-themes = {
+    #   url = "github:vinceliuice/grub2-themes";
+    # };
   };
 
   outputs =
@@ -56,7 +56,7 @@
           # > Our main nixos configuration file <
           modules = [
             ./nixos/configuration.nix
-            inputs.grub2-themes.nixosModules.default
+            # inputs.grub2-themes.nixosModules.default
             catppuccin.nixosModules.catppuccin
           ];
 
