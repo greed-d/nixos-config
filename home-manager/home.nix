@@ -15,6 +15,7 @@ in
   imports = [
     ./hyprland
     ./terminal
+    ./pkgs/rofi.nix
     inputs.spicetify-nix.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
@@ -163,10 +164,12 @@ in
   };
   programs.btop.enable = true;
   programs.btop.catppuccin.enable = true;
+
   programs.zellij = {
     enable = true;
     catppuccin.enable = true;
   };
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
   # programs.home-manager.buildFileBackup = "backup";

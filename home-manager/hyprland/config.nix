@@ -34,7 +34,7 @@
         "$mainMod" = "SUPER";
         "$terminal" = "kitty";
         "$fileManager" = "thunar";
-        "$menu" = "rofi -show drun -theme ~/.config/rofi/nord.rasi";
+        "$menu" = "rofi -show drun -theme ~/.config/rofi/config.rasi";
         "$browser" = "firefox";
         "$disc_client" = "vesktop";
 
@@ -147,7 +147,7 @@
         "$mainMod , D, exec, $disc_client"
         "$mainMod , E, exec, $fileManager"
         "$mainMod , T, exec, swaync-client -t -sw"
-        "$mainMod , V, exec, pkill rofi || cliphist list | rofi -dmenu -theme ~/.config/rofi/nord.rasi | cliphist decode | wl-copy"
+        "$mainMod , V, exec, pkill rofi || cliphist list | rofi -dmenu -theme ~/.config/rofi/config.rasi | cliphist decode | wl-copy"
         "$mainMod CONTROL, L, exec, hyprlock"
 
         "$mainMod , U, focusurgentorlast"
@@ -195,7 +195,15 @@
         "$mainMod SHIFT, Q, exec, shutdown now"
         "$mainMod SHIFT, R,  exec, reboot"
         "$mainMod CONTROL, Q,  exit "
+
+        # "ALT, R, submap, resize"
+        # ", escape, submap, reset"
       ];
+
+      # submap = [
+      #   "resize"
+      #   "reset"
+      # ];
 
       bindm = [
         "$mainMod , mouse:272,movewindow"
@@ -225,6 +233,11 @@
         "$mainMod CONTROL, j, focusmonitor, r"
         "$mainMod ALT, h, splitratio, -0.1"
         "$mainMod ALT, l, splitratio, +0.1"
+
+        # ", l, resizeactive, 10 0"
+        # ", h, resizeactive, -10 0"
+        # ", k, resizeactive, 0 -10"
+        # ", j, resizeactive, 0 10"
       ];
 
       windowrule = [
@@ -263,6 +276,12 @@
         "idleinhibit fullscreen, class:^(*)$"
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
+
+        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
 
         "opacity 0.90 0.90, class:^(vesktop|Thunar|Slack|discord|Spotify|neovide|kitty|[Aa]rm[Cc]ord|org.wezfurlong.wezterm|obsidian|TelegramDesktop)$"
         "workspace 1, class:^firefox$"

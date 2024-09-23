@@ -172,6 +172,7 @@
     microfetch
     pavucontrol
     rofi-wayland
+    ntfs3g
 
   ];
 

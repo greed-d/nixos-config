@@ -14,7 +14,10 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
-
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
