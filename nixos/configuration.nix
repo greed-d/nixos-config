@@ -125,6 +125,9 @@
     ];
   };
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   # Install firefox.
   programs.firefox.enable = true;
   # programs.zsh.enable = true;
@@ -197,7 +200,7 @@
   #
   environment.sessionVariables = {
     EDITOR = "nvim";
-    BROWSER = "Zen-alpha";
+    BROWSER = "io.github.zen_browser.zen";
     TERMINAL = "kitty";
   };
 
