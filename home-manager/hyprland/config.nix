@@ -39,7 +39,7 @@
         "$disc_client" = "vesktop";
 
         layout = "dwindle";
-        border_size = 2;
+        border_size = 3;
         "col.active_border" = "rgb(89dceb) rgb(1e2122) rgb(1e2122) rgb(89dceb)";
         "col.inactive_border" = "rgb(a6adc8) rgb(a6adc8) rgb(a6adc8) rgb(a6adc8) 45deg";
         gaps_in = 5;
