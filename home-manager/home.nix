@@ -8,7 +8,6 @@
 }:
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-
 in
 {
   # You can import other home-manager modules here
@@ -84,10 +83,7 @@ in
     zoxide
     webkitgtk
     hyprpanel
-    # hyprpicker
     hypridle
-    # hyprpaper
-    # hyprlock
     grim
     slurp
     wl-clip-persist
@@ -103,7 +99,7 @@ in
     mpvScripts.thumbfast
     waybar
     fzf
-
+    fishPlugins.sdkman-for-fish
   ];
 
   home.pointerCursor = {
@@ -138,6 +134,15 @@ in
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
 
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style = {
+      name = "kvantum";
+      catppuccin.enable = true;
+    };
+  };
+
   gtk = {
     enable = true;
     iconTheme = {
@@ -166,6 +171,11 @@ in
   programs.btop.catppuccin.enable = true;
 
   programs.zellij = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.yazi = {
     enable = true;
     catppuccin.enable = true;
   };
