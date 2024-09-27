@@ -39,8 +39,8 @@
     ];
 
     interactiveShellInit = ''
+      bind \cf zellij-sessionizer ~/Dev
 
-      bind \cf "tmux-sessionizer"
       starship init fish | source
       set -x XDG_DATA_DIRS $XDG_DATA_DIRS /usr/share /var/lib/flatpak/exports/share $HOME/.local/share/flatpak/exports/share
       set PATH "$PATH":"$HOME/.local/scripts/"

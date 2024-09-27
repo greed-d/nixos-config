@@ -39,7 +39,7 @@
         "$disc_client" = "vesktop";
 
         layout = "dwindle";
-        border_size = 3;
+        border_size = 2;
         "col.active_border" = "rgb(89dceb) rgb(1e2122) rgb(1e2122) rgb(89dceb)";
         "col.inactive_border" = "rgb(a6adc8) rgb(a6adc8) rgb(a6adc8) rgb(a6adc8) 45deg";
         gaps_in = 5;
@@ -83,57 +83,58 @@
       animations = {
         enabled = true;
 
-        # bezier = [
-        #   "wind, 0.05, 0.9, 0.1, 1.05"
-        #   "winIn, 0.1, 1.1, 0.1, 1.1"
-        #   "winOut, 0.3, -0.3, 0, 1"
-        #   "linear, 1, 1, 1, 1"
-        # ];
-
         bezier = [
           "wind, 0.05, 0.9, 0.1, 1.05"
           "winIn, 0.1, 1.1, 0.1, 1.1"
           "winOut, 0.3, -0.3, 0, 1"
-          "linear, 0, 0, 1, 1"
-          "md3_standard, 0.2, 0, 0, 1"
-          "md3_decel, 0.05, 0.7, 0.4, 1"
+          "linear, 1, 1, 1, 1"
           "md3_accel, 0.3, 0, 0.8, 0.15"
-          "overshot, 0.05, 0.9, 0.1, 1.1"
-          "crazyshot, 0.1, 1.5, 0.76, 0.92 "
-          "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
           "menu_decel, 0.1, 1, 0, 1"
           "menu_accel, 0.38, 0.04, 1, 0.07"
-          "easeInOutCirc, 0.85, 0, 0.15, 1"
-          "easeOutCirc, 0, 0.55, 0.45, 1"
-          "easeOutExpo, 0.16, 1, 0.3, 1"
-          "softAcDecel, 0.26, 0.26, 0.15, 1"
-          "md2, 0.4, 0, 0.2, 1 # use with .2s duration"
+
         ];
 
-        # animation = [
-        #   "windows, 1, 6, wind, slide"
-        #   "windowsIn, 1, 6, winIn, slide"
-        #   "windowsOut, 1, 5, winOut, slide"
-        #   "windowsMove, 1, 5, wind, slide"
-        #   "border, 1, 1, linear"
-        #   "borderangle, 1, 30, linear, loop"
-        #   "fade, 1, 10, default"
-        #   "workspaces, 1, 5, wind "
+        # bezier = [
+        #   "wind, 0.05, 0.9, 0.1, 1.05"
+        #   "winIn, 0.1, 1.1, 0.1, 1.1"
+        #   "winOut, 0.3, -0.3, 0, 1"
+        #   "linear, 0, 0, 1, 1"
+        #   "md3_standard, 0.2, 0, 0, 1"
+        #   "md3_decel, 0.05, 0.7, 0.4, 1"
+        #   "md3_accel, 0.3, 0, 0.8, 0.15"
+        #   "overshot, 0.05, 0.9, 0.1, 1.1"
+        #   "crazyshot, 0.1, 1.5, 0.76, 0.92 "
+        #   "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+        #   "menu_decel, 0.1, 1, 0, 1"
+        #   "menu_accel, 0.38, 0.04, 1, 0.07"
+        #   "easeInOutCirc, 0.85, 0, 0.15, 1"
+        #   "easeOutCirc, 0, 0.55, 0.45, 1"
+        #   "easeOutExpo, 0.16, 1, 0.3, 1"
+        #   "softAcDecel, 0.26, 0.26, 0.15, 1"
+        #   "md2, 0.4, 0, 0.2, 1 # use with .2s duration"
         # ];
 
         animation = [
-          "windows, 1, 3, md3_decel, slide 60%"
-          "windowsIn, 1, 3, md3_decel, slide 60%"
-          "windowsOut, 1, 3, md3_accel, slide 90%"
-          "border, 1, 10, default"
-          "fade, 1, 3, md3_decel"
-          "layersIn, 1, 3, menu_decel, slide"
-          "layersOut, 1, 1.6, menu_accel"
-          "fadeLayersIn, 1, 2, menu_decel"
-          "fadeLayersOut, 1, 4.5, menu_accel"
-          "workspaces, 1, 7, menu_decel, slide"
-          "specialWorkspace, 1, 3, md3_decel, slidevert"
+          "windows, 1, 6, wind, slide"
+          "windowsIn, 1, 6, winIn, slide"
+          "windowsOut, 1, 5, winOut, slide"
+          "windowsMove, 1, 5, wind, slide"
+          "border, 1, 1, linear"
+          "borderangle, 1, 30, linear, loop"
+          "workspaces, 1, 5, wind "
         ];
+
+        # animation = [
+        #   "windows, 1, 3, md3_decel, slide 60%"
+        #   "windowsIn, 1, 3, md3_decel, slide 60%"
+        #   "windowsOut, 1, 3, md3_accel, slide 90%"
+        #   "border, 1, 10, default"
+        #   "layersIn, 1, 3, menu_decel, slide"
+        #   "layersOut, 1, 1.6, menu_accel"
+        #   "fadeLayersIn, 1, 2, menu_decel"
+        #   "fadeLayersOut, 1, 4.5, menu_accel"
+        #   "workspaces, 1, 7, menu_decel, slide"
+        # ];
 
       };
 
@@ -196,14 +197,7 @@
         "$mainMod SHIFT, R,  exec, reboot"
         "$mainMod CONTROL, Q,  exit "
 
-        # "ALT, R, submap, resize"
-        # ", escape, submap, reset"
       ];
-
-      # submap = [
-      #   "resize"
-      #   "reset"
-      # ];
 
       bindm = [
         "$mainMod , mouse:272,movewindow"
@@ -234,10 +228,10 @@
         "$mainMod ALT, h, splitratio, -0.1"
         "$mainMod ALT, l, splitratio, +0.1"
 
-        # ", l, resizeactive, 10 0"
-        # ", h, resizeactive, -10 0"
-        # ", k, resizeactive, 0 -10"
-        # ", j, resizeactive, 0 10"
+        ", l, resizeactive, 10 0"
+        ", h, resizeactive, -10 0"
+        ", k, resizeactive, 0 -10"
+        ", j, resizeactive, 0 10"
       ];
 
       windowrule = [
